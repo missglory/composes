@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  vscode:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8089:8080"
+    volumes:
+      - .:/home/vscode/project
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            # device_ids: ['0']
+            capabilities: [gpu]
+    networks:
+      - jupyter
+networks:
+  jupyter:
+    driver: bridge
