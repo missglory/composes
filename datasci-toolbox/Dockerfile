@@ -1,5 +1,6 @@
 # Use an official NVIDIA CUDA base image with Python
-FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu20.04
+# FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu20.04
+FROM nvcr.io/nvidia/tensorrt:22.12-py3
 
 # Install necessary packages
 RUN apt-get update && \
